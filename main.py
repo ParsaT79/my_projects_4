@@ -1,3 +1,5 @@
-from data_access.data_managment import create_table
+from data_access.data_management import *
 
 create_table()
+
+import view.view
