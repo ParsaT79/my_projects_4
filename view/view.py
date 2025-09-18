@@ -4,7 +4,6 @@ from data_access.data_management import *
 
 
 def show_rejected():
-    rejected_listbox.delete(0, END)
     rejected = get_rejected()
     if rejected:
         for product, order_time in rejected:
@@ -14,7 +13,6 @@ def show_rejected():
 
 
 def show_delivered():
-    delivered_listbox.delete(0, END)
     delivered = get_delivered()
     if delivered:
         for product, deliver_time in delivered:

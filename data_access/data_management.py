@@ -55,6 +55,7 @@ def send_products():
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     deliver_time = datetime.now().strftime('%H:%M:%S')
-    c.execute("UPDATE products SET status='delivered', deliver_time=? WHERE status='send'", (deliver_time,))
+    c.execute("UPDATE products SET status='delivered', deliver_time=? WHERE status='send'",
+              (deliver_time,))
     conn.commit()
     conn.close()
