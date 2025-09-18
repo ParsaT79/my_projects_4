@@ -57,5 +57,10 @@ def send_products():
     deliver_time = datetime.now().strftime('%H:%M:%S')
     c.execute("UPDATE products SET status='delivered', deliver_time=? WHERE status='send'",
               (deliver_time,))
+    if c.rowcount == 0:
+        conn.commit()
+        conn.close()
+        return False
     conn.commit()
     conn.close()
+    return True
