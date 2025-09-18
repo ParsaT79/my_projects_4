@@ -4,15 +4,17 @@ from data_access.data_management import *
 
 
 def show_rejected():
+    rejected_listbox.delete(0, END)
     rejected = get_rejected()
     if rejected:
         for product, order_time in rejected:
-            rejected_listbox.insert(END, f"{product} - Ordered at: {order_time}")
+            rejected_listbox.insert(END, f"{product} - Ordered and Rejected at: {order_time}")
     else:
         rejected_listbox.insert(END, "No rejected products")
 
 
 def show_delivered():
+    delivered_listbox.delete(0, END)
     delivered = get_delivered()
     if delivered:
         for product, deliver_time in delivered:
@@ -54,7 +56,7 @@ def send_click():
 
 window = Tk()
 window.title("Delivery App v0.1")
-window.geometry("700x600")
+window.geometry("700x400")
 
 product = StringVar()
 Label(window, text="Product Name").place(x=30, y=30)
